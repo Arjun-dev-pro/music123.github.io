@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>paper</title>
+	<style type="text/css">
+		body{
+			width:100%;
+			height:100%;
+			margin:0;
+			background: #2BC0E4;  /* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	
+		}
+		html
+		{
+			width:100%;
+			height:100%;
+			margin:0;
+		}
+		canvas
+		{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+
+	<script type="text/javascript" src="paper-full.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.js"></script>
+	<script type="text/paperscript" canvas="mycanvas">
+
+
+var name = ['sounds/corona.mp3','sounds/clay.mp3','sounds/bubbles.mp3','sounds/confetti.mp3','sounds/dotted-spiral.mp3','sounds/flash-1.mp3','sounds/flash-2.mp3','sounds/flash-3.mp3','sounds/glimmer.mp3','sounds/moon.mp3','sounds/pinwheel.mp3','sounds/piston-1.mp3','sounds/piston-2.mp3','sounds/piston-3.mp3','sounds/prism-1.mp3','sounds/prism-2.mp3','sounds/prism-3.mp3','sounds/splits.mp3','sounds/squiggle.mp3','sounds/strike.mp3','sounds/suspension.mp3','sounds/timer.mp3','sounds/ufo.mp3','sounds/veil.mp3','sounds/wipe.mp3','sounds/zig-zag.mp3'];
+var sounding = [];
+for(var i=0;i<26;i++)
+{
+	sounding[i] = new Howl({
+  src: [name[i]]
+});
+}
+
+   var cirArray = [];
+	function onKeyDown(event) {
+	console.log(event.key);
+	
+	
+	
+	switch (event.key) {
+
+  	case 'a':
+    sounding[0].play();
+    break;
+
+  	case 'b':
+    sounding[1].play();
+    break;
+
+    case 'c':
+    sounding[2].play();
+    break;
+
+    case 'd':
+    sounding[3].play();
+    break;
+
+    case 'e':
+    sounding[4].play();
+    break;
+
+    case 'f':
+    sounding[5].play();
+    break;
+
+    case 'g':
+    sounding[6].play();
+    break;
+
+    case 'h':
+    sounding[7].play();
+    break;
+
+    case 'i':
+    sounding[8].play();
+    break;
+
+    case 'j':
+    sounding[9].play();
+    break;
+
+
+    case 'k':
+    sounding[10].play();
+    break;
+
+
+    case 'l':
+    sounding[11].play();
+    break;
+
+    case 'm':
+    sounding[12].play();
+    break;
+
+    case 'n':
+    sounding[13].play();
+    break;
+
+    case 'o':
+    sounding[14].play();
+    break;
+
+     case 'p':
+    sounding[15].play();
+    break;
+
+     case 'q':
+    sounding[16].play();
+    break;
+
+     case 'r':
+    sounding[17].play();
+    break;
+
+     case 's':
+    sounding[18].play();
+    break;
+
+     case 't':
+    sounding[19].play();
+    break;
+
+     case 'u':
+    sounding[20].play();
+    break;
+
+     case 'v':
+    sounding[21].play();
+    break;
+
+
+     case 'w':
+    sounding[22].play();
+    break;
+
+     case 'x':
+    sounding[23].play();
+    break;
+
+     case 'y':
+    sounding[24].play();
+    break;
+
+     case 'z':
+    sounding[25].play();
+    break;
+}
+
+	        var a1 = Number(Math.floor(Math.random()*255));
+			var b1 = Number(Math.floor(Math.random()*255));
+			var c1 = Number(Math.floor(Math.random()*255));
+			// When a key is pressed, set the content of the text item:
+			//text.content = 'The ' + event.key + ' key was pressed!';
+			var a = Number(Math.floor(Math.random()*1500));
+			var b = Number(Math.floor(Math.random()*1000));
+			var circle = new Path.Circle(new Point(a, b),500);
+
+	var myStyle = {
+	strokeColor: '#42cbf5',
+	strokeWidth: 5
+	};
+
+	circle.style = myStyle;
+	circle.fillColor = "rgba("+a1+", "+b1+", "+c1+")";
+	cirArray.push(circle);
+
+} 
+
+function onFrame()
+{
+	for(var i=0;i<cirArray.length;i++)
+	{
+		cirArray[i].fillColor.hue+=3;
+		cirArray[i].scale(0.9);
+	}
+}
+
+</script>
+</head>
+
+<body>
+<canvas id="mycanvas"></canvas>
+</body>
+</html>
